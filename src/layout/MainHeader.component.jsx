@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 //actions
 import { updateView } from "../actions/uiActions";
@@ -22,46 +22,49 @@ const MainHeader = ({
     <div className="main-header-container">
       <h2 className="main-title">Browse</h2>
 
-        <ul className="Header-items">
-          <li>
-            <span
-              className={viewType === "featured" ? "active" : ""}
-              onClick={() => {
-                updateView("featured");
-                fetchFeatured(token);
-              }}
-            >
-              Featured
-            </span>
-          </li>
-          <li>
-            <span
-              className={viewType === "latest" ? "active" : ""}
-              onClick={() => {
-                updateView("latest");
-                fetchNewRelease(token);
-              }}
-            >
-              Latest
-            </span>
-          </li>
-          <li>
-            <span
-              className={viewType === "genres" ? "active" : ""}
-              onClick={() => {
-                updateView("genres");
-                fetchGenres(token);
-              }}
-            >
-              Genres
-            </span>
-          </li>
-        </ul>
+      <ul className="Header-items">
+        <li>
+          <span
+            className={viewType === "featured" ? "active" : ""}
+            onClick={() => {
+              updateView("featured");
+              fetchFeatured(token);
+            }}
+          >
+            Featured
+          </span>
+        </li>
+        <li>
+          <span
+            className={viewType === "latest" ? "active" : ""}
+            onClick={() => {
+              updateView("latest");
+              fetchNewRelease(token);
+            }}
+          >
+            Latest
+          </span>
+        </li>
+        <li>
+          <span
+            className={viewType === "genres" ? "active" : ""}
+            onClick={() => {
+              updateView("genres");
+              fetchGenres(token);
+            }}
+          >
+            Genres
+          </span>
+        </li>
+      </ul>
     </div>
   );
 };
 
-//MainHeader.propTypes = {};
+MainHeader.propTypes = {
+  viewType: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   viewType: state.uiReducer.viewType,

@@ -17,8 +17,12 @@ ul {
   list-style: none;
 }
 
+.side-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .side-bar-logo {
-  margin-right: auto;
   object-fit: contain;
   height: 65px;
   padding: 0;
@@ -97,7 +101,7 @@ img {
 
 .active:before {
   border-bottom: 3px solid #1db954;
-  top: 28px;
+  top: 25px;
   content: '';
   display: inline-block;
   position: absolute;

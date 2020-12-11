@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
+import Spinner from "../components/Spinner/Spinner";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
-import { green } from "@material-ui/core/colors";
 
 function MainView({ viewType, featured, new_release, genres, loading }) {
   let view;
+
   if (viewType === "featured" && featured.length) {
     view = featured.map((item, i) => {
       return (
@@ -13,7 +14,7 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
           <div className="view-content-container">
             <div className="view-image">
               <img
-                alt={"image"}
+                alt={item.name}
                 src={item.icons ? item.icons[0].url : item.images[0].url}
               />
               <div className="play-icon">
@@ -36,7 +37,7 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
           <div className="view-content-container">
             <div className="view-image">
               <img
-                alt={"image"}
+                alt={item.name}
                 src={item.icons ? item.icons[0].url : item.images[0].url}
               />
               <div className="play-icon">
@@ -60,7 +61,7 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
           <div className="view-content-container">
             <div className="view-image">
               <img
-                alt={"image"}
+                alt={item.name}
                 src={item.icons ? item.icons[0].url : item.images[0].url}
               />
 
@@ -77,10 +78,18 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
     });
   }
 
-  return <ul className="view-list-container">{view}</ul>;
+  return (
+    <ul className="view-list-container">{loading ? <Spinner /> : view}</ul>
+  );
 }
 
-// MainView.propTypes = {};
+MainView.propTypes = {
+  viewType: PropTypes.string.isRequired,
+  featured: PropTypes.array.isRequired,
+  new_release: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
 
 const mapStateToProp = (state) => ({
   viewType: state.uiReducer.viewType,

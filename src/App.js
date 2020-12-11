@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 
 //Component
@@ -33,7 +33,7 @@ const App = ({ setToken, fetchFeatured }) => {
       setToken(hashParams.access_token);
       fetchFeatured(hashParams.access_token);
     }
-  }, []);
+  }, [setToken, fetchFeatured]);
 
   return (
     <div className="app-container">

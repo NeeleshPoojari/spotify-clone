@@ -5,7 +5,7 @@ import { AllTypes } from "./types";
 const apiLinks = {
   featured: "https://api.spotify.com/v1/browse/featured-playlists",
   latest: "https://api.spotify.com/v1/browse/new-releases",
-  genres: "https://api.spotify.com/v1/browse/categories",
+  genres: "https://api.spotify.com/v1/browse/categories?country=IN&locale=in_IN"
 };
 
 
