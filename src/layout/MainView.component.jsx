@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 //import PropTypes from "prop-types";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import { green } from "@material-ui/core/colors";
 
 function MainView({ viewType, featured, new_release, genres, loading }) {
   let view;
@@ -9,18 +11,19 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
       return (
         <li className="view-item" key={i}>
           <div className="view-content-container">
-          <div className="view-image">
-            <img
-              alt={"image"}
-              src={item.icons ? item.icons[0].url : item.images[0].url}
-            />
+            <div className="view-image">
+              <img
+                alt={"image"}
+                src={item.icons ? item.icons[0].url : item.images[0].url}
+              />
+              <div className="play-icon">
+                <PlayCircleFilledIcon fontSize={"large"} />
+              </div>
+            </div>
+            <div className="view-detail">
+              <h4 className="view-name">{item.name}</h4>
+            </div>
           </div>
-          <div className="view-detail">
-          <h4 className="view-name">{item.name}</h4>
-          </div>
-
-          </div>
-         
         </li>
       );
     });
@@ -31,45 +34,45 @@ function MainView({ viewType, featured, new_release, genres, loading }) {
       return (
         <li className="view-item" key={i}>
           <div className="view-content-container">
-          <div className="view-image">
-            <img
-              alt={"image"}
-              src={item.icons ? item.icons[0].url : item.images[0].url}
-            />
+            <div className="view-image">
+              <img
+                alt={"image"}
+                src={item.icons ? item.icons[0].url : item.images[0].url}
+              />
+              <div className="play-icon">
+                <PlayCircleFilledIcon fontSize={"large"} />
+              </div>
+            </div>
+            <div className="view-detail">
+              <h4 className="view-name">{item.name}</h4>
+              <sub>{item.artists[0].name}</sub>
+            </div>
           </div>
-          <div className="view-detail">
-          <h4 className="view-name">{item.name}</h4>
-          <sub>{item.artists[0].name}</sub>
-
-          </div>
-
-          </div>
-         
         </li>
       );
     });
   }
- 
 
   if (viewType === "genres" && genres.length) {
     view = genres.map((item, i) => {
       return (
-
         <li className="view-item" key={i}>
-        <div className="view-content-container">
-        <div className="view-image">
-          <img
-            alt={"image"}
-            src={item.icons ? item.icons[0].url : item.images[0].url}
-          />
-        </div>
-        <div className="view-detail">
-        <p className="view-name">{item.name}</p>
-        </div>
-      
-        </div>
-       
-      </li>
+          <div className="view-content-container">
+            <div className="view-image">
+              <img
+                alt={"image"}
+                src={item.icons ? item.icons[0].url : item.images[0].url}
+              />
+
+              <div className="play-icon">
+                <PlayCircleFilledIcon fontSize={"large"} />
+              </div>
+            </div>
+            <div className="view-detail">
+              <p className="view-name">{item.name}</p>
+            </div>
+          </div>
+        </li>
       );
     });
   }

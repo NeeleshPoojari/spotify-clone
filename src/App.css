@@ -8,17 +8,8 @@ body {
   background-color: rgb(24, 24, 24);
 }
 
-span {
-  padding: 20px;
-  cursor: pointer;
-}
-
 h2.main-title {
-padding: 20px;
-}
-
-.active {
-  text-decoration: underline;
+  padding: 20px 10px;
 }
 
 ul {
@@ -32,9 +23,9 @@ ul {
   height: 65px;
   padding: 0;
 }
+
 img {
   display: inline-block;
-  /* padding: 20px; */
   max-width: 180px;
 }
 
@@ -71,23 +62,64 @@ img {
 }
 
 .category-name {
-padding: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
 }
 
 .view-item {
   flex-basis: 180px;
   margin: 10px;
+  background: #181818;
   cursor: pointer;
+}
+
+.view-image {
+  position: relative;
+}
+
+.play-icon {
+  display: none;
+  position: absolute;
+  right: 6px;
+  bottom: 10px;
+}
+
+.view-item:hover {
+  background-color: #282828;
+}
+.view-item:hover  .play-icon {
+  display: block;
 }
 
 .view-content-container {
   padding: 15px;
-    background: #181818;
+  /* background: #181818; */
+}
+
+.active:before {
+  border-bottom: 3px solid #1db954;
+  top: 28px;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 40px;
 }
 
 .Header-items {
-  padding-bottom: 20px;
+  padding: 0 13px 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
+
+.Header-items li {
+  margin-right: 30px;
+  position: relative;
+}
+
 .view-name {
   padding: 10px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 180px;
 }
